@@ -1,0 +1,13 @@
+[core]
+  excludesfile = ~/.gitignore
+  fileMode = false
+  autocrlf=false
+  logallrefupdates=true
+  repositoryformatversion=0
+[user]
+  name="Mark Kornblum"
+  email=mark.kornblum@gmail.com
+[color]
+  ui=auto
+[github]
+  user=mkornblum
