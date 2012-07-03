@@ -117,7 +117,7 @@
 ;; (require 'project)
 (require 'simp)
 (require 'multi-term)
-(require 'emux)
+;;(require 'emux)
 (require 'midnight)
 
 (simp-project-define
