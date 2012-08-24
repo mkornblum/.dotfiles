@@ -7,7 +7,7 @@
  '(confirm-kill-emacs (quote y-or-n-p))
  '(css-indent-level 2)
  '(css-indent-offset 2)
- '(custom-enabled-themes (quote (misterioso)))
+ '(custom-enabled-themes (quote (sanityinc-solarized-dark)))
  '(custom-safe-themes (quote ("7fe1e3de3e04afc43f9a3d3a8d38cd0a0efd9d4c" "d14db41612953d22506af16ef7a23c4d112150e5" "517aecb1202bfa31fd3c44473d72483c5166124d" "2bfbc800988b899e101edd59f601ab530ea97686" "5600dc0bb4a2b72a613175da54edb4ad770105aa" "68022c474ffb440be956540dbe95bfd42655620e" "ce3e74cb8944681667c3d9a87f4b7498412f476e" default)))
  '(display-time-mode t)
  '(elscreen-display-tab nil)
