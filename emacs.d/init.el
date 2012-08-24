@@ -1,3 +1,17 @@
+;;; LOAD PATH
+(let ((default-directory "~/.emacs.d"))
+  (normal-top-level-add-subdirs-to-load-path))
+
+(load "~/.emacs.d/package.el")
+(require 'package)
+(add-to-list 'package-archives
+             '("marmalade" .
+               "http://marmalade-repo.org/packages/") t)
+(add-to-list 'package-archives
+             '("elpa" . "http://tromey.com/elpa/"))
+
+(require 'color-theme-sanityinc-solarized)
+
 (fset 'yes-or-no-p 'y-or-n-p)
 (setq custom-file "~/.emacs.d/custom.el")
 (load custom-file)
@@ -81,18 +95,6 @@
 (add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.rake\\'" . ruby-mode))
 (add-to-list 'auto-mode-alist '("\\.hamlbars\\'" . haml-mode))
-
-;;; LOAD PATH
-(let ((default-directory "~/.emacs.d"))
-  (normal-top-level-add-subdirs-to-load-path))
-
-(load "~/.emacs.d/package.el")
-(require 'package)
-(add-to-list 'package-archives
-             '("marmalade" .
-               "http://marmalade-repo.org/packages/") t)
-(add-to-list 'package-archives
-             '("elpa" . "http://tromey.com/elpa/"))
 
 ;; Trailing whitespace is significant in Markdown, so don't mess with it
 (defadvice delete-trailing-whitespace (around disable-in-markdown activate)
