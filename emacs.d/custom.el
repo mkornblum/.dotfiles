@@ -46,6 +46,7 @@
  '(nxml-child-indent 2)
  '(nxml-outline-child-indent 2)
  '(quote (sgml-basic-offset 4))
+ '(safe-local-variable-values (quote ((encoding . utf-8))))
  '(scss-compile-at-save nil)
  '(show-paren-mode t)
  '(tab-width 2)
