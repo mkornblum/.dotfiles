@@ -29,6 +29,7 @@
 (setq mac-command-key-is-meta t)
 (setq mac-command-modifier 'meta)
 (setq mac-option-modifier nil)
+(setq ruby-deep-indent-paren nil)
 
 (defun yank-and-indent ()
   "Yank and then indent the newly formed region according to mode."
