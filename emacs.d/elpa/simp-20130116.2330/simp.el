@@ -1,11 +1,11 @@
 ;;; simp.el --- Simple project defenition, chiefly for file finding, and grepping
 
-;; Copyright (C) 2011 @re5et
+;; Copyright (C) 2011-2013 @re5et
 
 ;; Author: atom smith
-;; URL: http://trickeries.com
+;; URL: https://github.com/re5et/simp
 ;; Created: 22 Dec 2011
-;; Version: 0.1.1
+;; Version: 0.4.0
 ;; Keywords: project grep find
 
 ;; This file is NOT part of GNU Emacs.
@@ -34,8 +34,15 @@
 ;; If you want to use any or some of these without everything, require
 ;; just the things you want.
 
-(require 'simp-project)
 (require 'simp-project-files)
 (require 'simp-project-rgrep)
+(require 'simp-project-root-dired)
+(require 'simp-project-ibuffer)
+
+;; this should be required last, it generates
+;; helpers for other simp-project features
+(require 'simp-project-with-bookmarks)
 
 (provide 'simp)
+
+;;; simp.el ends here

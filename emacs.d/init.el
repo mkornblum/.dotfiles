@@ -9,6 +9,8 @@
                "http://marmalade-repo.org/packages/") t)
 (add-to-list 'package-archives
              '("elpa" . "http://tromey.com/elpa/"))
+(add-to-list 'package-archives
+             '("melpa" . "http://melpa.milkbox.net/packages/") t)
 
 (require 'color-theme-sanityinc-solarized)
 
@@ -121,6 +123,11 @@
          :has (config.ru app/views app/models app/controllers)
          :ignore (tmp coverage log vendor .git public/system public/assets)))
 
+(simp-project-define
+ '(:type git
+         :has (.git)
+         :ignore (.git)))
+
 (smex-initialize)
 (ido-mode t)
 (setq linum-format "%d")
@@ -174,4 +181,4 @@
 
 
 
-(emux-session-create '(:name "default"))
+;; (emux-session-create '(:name "default"))

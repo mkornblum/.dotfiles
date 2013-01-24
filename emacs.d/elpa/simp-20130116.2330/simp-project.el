@@ -1,11 +1,11 @@
 ;;; simp-project.el --- Simple project defenition, chiefly for file finding, and grepping
 
-;; Copyright (C) 2011 @re5et
+;; Copyright (C) 2011-2013 @re5et
 
 ;; Author: atom smith
-;; URL: http://trickeries.com
+;; URL: https://github.com/re5et/simp
 ;; Created: 22 Dec 2011
-;; Version: 0.1.1
+;; Version: 0.4.0
 ;; Keywords: project grep find
 
 ;; This file is NOT part of GNU Emacs.
@@ -31,7 +31,7 @@
 
 ;;; Commentary:
 
-;; A very simple generic project defenition to work with git projects:
+;; A very simple generic project definition to work with git projects:
 
 ;; (simp-project-define
 ;;  '(:has (.git)
@@ -48,7 +48,7 @@
 ;;  '(:has (.hg)
 ;;    :ignore (.hg)))
 
-;; A more complex project defenition might look like this:
+;; A more complex project definition might look like this:
 
 ;; (simp-project-define
 ;;  '(:type rails
@@ -72,12 +72,21 @@
 ;;  '(:type emacs
 ;;    :has (init.el)))
 
+;; Needed for 'return' used in simp-project-for-current-buffer
+(require 'cl)
+
+(defgroup simp nil
+  "Simp project helper."
+  :group 'convenience)
+
 (defvar simp-projects ())
 (defvar simp-buffer-project nil)
 (make-variable-buffer-local 'simp-buffer-project)
 
-(defcustom simp-completing-read-command 'completing-read
-  "The completing read command simp-completing-read will use.")
+(defcustom simp-completing-read-command
+  'completing-read
+  "The completing read command simp-completing-read will use."
+  :group 'simp)
 
 (defun simp-completing-read (prompt collection)
   "Internal simp use, completing read used by simp.
@@ -98,7 +107,14 @@ correct project and set it"
           (if found-project
               (progn
                 (plist-put project :root (directory-file-name found-project))
-                (return (setq simp-buffer-project project))))))))
+                (return (setq simp-buffer-project project)))))))
+  (if simp-buffer-project
+      simp-buffer-project
+    (error "simp did not find a project to work with :(")))
+
+(defun simp-glob-in-dir (glob dir)
+  "Returns a list of any files matching the given GLOB are in DIR"
+  (file-expand-wildcards (expand-file-name (symbol-name glob) dir)))
 
 (defun simp-project-has-paths (paths &optional dir)
   "Used to match a path to a project.  PATHS are tested
@@ -108,17 +124,16 @@ to see if they exist in DIR"
          nil
          (mapcar
           (lambda (path)
-            (file-exists-p (expand-file-name (symbol-name path) dir)))
+            (simp-glob-in-dir path dir))
           paths))
-        (unless (string= dir "/")
+        (if (string= dir "/") nil
           (simp-project-has-paths paths (expand-file-name ".." dir)))
       dir)))
 
 (defun simp-project-get (member)
   "get MEMBER property from the current project"
-  (plist-get
-   (simp-project-for-current-buffer)
-   member))
+  (if (simp-project-for-current-buffer)
+      (plist-get (simp-project-for-current-buffer) member)))
 
 (defun simp-project-root ()
   "get the current buffers project root"
@@ -138,3 +153,5 @@ number of key value pairs that you wish to reference using simp-project-get."
   (push project simp-projects))
 
 (provide 'simp-project)
+
+;;; simp-project.el ends here

@@ -49,6 +49,7 @@
  '(safe-local-variable-values (quote ((encoding . utf-8))))
  '(scss-compile-at-save nil)
  '(show-paren-mode t)
+ '(simp-completing-read-command (quote ido-completing-read))
  '(tab-width 2)
  '(uniquify-buffer-name-style (quote forward) nil (uniquify))
  '(yank-pop-change-selection t))

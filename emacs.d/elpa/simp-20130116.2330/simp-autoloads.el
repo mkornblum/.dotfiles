@@ -4,8 +4,9 @@
 
 
 ;;;### (autoloads nil nil ("simp-pkg.el" "simp-project-files.el"
-;;;;;;  "simp-project-rgrep.el" "simp-project.el" "simp.el") (20227
-;;;;;;  23888 656170))
+;;;;;;  "simp-project-ibuffer.el" "simp-project-rgrep.el" "simp-project-root-dired.el"
+;;;;;;  "simp-project-with-bookmarks.el" "simp-project.el" "simp.el")
+;;;;;;  (20733 62042 560149))
 
 ;;;***
 

@@ -1,11 +1,11 @@
 ;;; simp-project-rgrep.el --- simp project enhanced rgrepping
 
-;; Copyright (C) 2011 @re5et
+;; Copyright (C) 2011-2013 @re5et
 
 ;; Author: atom smith
-;; URL: http://trickeries.com
+;; URL: https://github.com/re5et/simp
 ;; Created: 22 Dec 2011
-;; Version: 0.1.1
+;; Version: 0.4.0
 ;; Keywords: project grep find
 
 ;; This file is NOT part of GNU Emacs.
@@ -43,11 +43,13 @@
   "add project's ignored paths to the rgrep's ignored"
   (let* ((original-ignored grep-find-ignored-directories)
          (grep-find-ignored-directories
-          (append original-ignored
-                  (mapcar
-                   (lambda (dir)
-                     (symbol-name dir))
-                   (simp-project-ignored)))))
+          (condition-case nil
+              (append original-ignored
+                      (mapcar
+                       (lambda (dir)
+                         (symbol-name dir))
+                       (simp-project-ignored)))
+            (error original-ignored))))
     (funcall fn)))
 
 (defun simp-project-rgrep ()
@@ -58,16 +60,22 @@ directories excluded"
    (lambda ()
      (call-interactively 'rgrep))))
 
-(defun simp-project-rgrep-thing-at-point ()
+(defun simp-project-rgrep-dwim ()
   "Interactively call rgrep with the project's ignored
 directories excluded, search all file types for the
-current region, or the thing at point"
+current region, or the (symbol) thing at point"
   (interactive)
   (simp-project-buffer-rgrep
    (lambda ()
      (let ((search-for (if (region-active-p)
                            (buffer-substring (region-beginning) (region-end))
                          (thing-at-point 'symbol))))
-       (rgrep search-for "*" (simp-project-root))))))
+       (if search-for
+           (rgrep search-for "*" (simp-project-root))
+         (message "Failed to rgrep. No active region, and point not near a symbol"))))))
+
+(defalias 'simp-project-rgrep-thing-at-point 'simp-project-rgrep-dwim)
 
 (provide 'simp-project-rgrep)
+
+;;; simp-project-rgrep.el ends here
