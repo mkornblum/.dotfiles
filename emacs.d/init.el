@@ -92,6 +92,7 @@
 (add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.rake\\'" . ruby-mode))
 (add-to-list 'auto-mode-alist '("\\.hamlbars\\'" . haml-mode))
+(add-to-list 'auto-mode-alist '("\\.php\\'" . php-mode))
 
 ;; Trailing whitespace is significant in Markdown, so don't mess with it
 (defadvice delete-trailing-whitespace (around disable-in-markdown activate)
