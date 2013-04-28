@@ -11,3 +11,5 @@
   ui=auto
 [github]
   user=mkornblum
+[heroku]
+	account = personal
