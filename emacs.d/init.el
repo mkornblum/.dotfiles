@@ -109,6 +109,9 @@
   (unless (eq major-mode 'markdown-mode)
     ad-do-it))
 
+(add-hook 'term-mode-hook (lambda ()
+                            (define-key term-raw-map (kbd "C-y") 'term-paste)))
+
 (add-hook 'find-file-hook 'delete-trailing-whitespace)
 (add-hook 'find-file-hook 'untabify-all)
 (add-hook 'before-save-hook 'delete-trailing-whitespace) ;; go to hell trailing whitespace
