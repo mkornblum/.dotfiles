@@ -132,7 +132,7 @@
 
 (smex-initialize)
 (ido-mode t)
-(setq linum-format "%d")
+(setq linum-format 'dynamic)
 
 (global-set-key (kbd "C-#") 'comment-region)
 (global-set-key (kbd "C-@") 'uncomment-region)
