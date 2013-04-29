@@ -2,6 +2,16 @@
 (let ((default-directory "~/.emacs.d"))
   (normal-top-level-add-subdirs-to-load-path))
 
+;; use utf-8 for everything
+(setq locale-coding-system 'utf-8)
+(set-terminal-coding-system 'utf-8)
+(set-keyboard-coding-system 'utf-8)
+(set-selection-coding-system 'utf-8)
+(prefer-coding-system 'utf-8)
+
+;; Use Emacs terminfo, not system terminfo
+(setq system-uses-terminfo nil)
+
 (load "~/.emacs.d/package.el")
 (require 'package)
 (add-to-list 'package-archives

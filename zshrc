@@ -76,5 +76,7 @@ export RUBY_FREE_MIN=$RUBY_HEAP_FREE_MIN
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
+[[ $EMACS = t ]] && unsetopt zle
+
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
