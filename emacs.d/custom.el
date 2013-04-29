@@ -14,6 +14,7 @@
  '(emux-completing-read-command (quote ido-completing-read))
  '(fill-column 90)
  '(fringe-mode nil nil (fringe))
+ '(global-auto-revert-mode t)
  '(global-linum-mode nil)
  '(grep-command "grep -nH -e ")
  '(grep-find-command nil)
