@@ -15,10 +15,7 @@
 (load "~/.emacs.d/package.el")
 (require 'package)
 (add-to-list 'package-archives
-             '("marmalade" .
-               "http://marmalade-repo.org/packages/") t)
-(add-to-list 'package-archives
-             '("elpa" . "http://tromey.com/elpa/"))
+             '("marmalade" . "http://marmalade-repo.org/packages/") t)
 (add-to-list 'package-archives
              '("melpa" . "http://melpa.milkbox.net/packages/") t)
 
@@ -193,7 +190,5 @@
    ("M-DEL" . term-send-backward-kill-word)
    ("M-," . term-send-input)
    ("M-." . comint-dynamic-complete)))
-
-
 
 ;; (emux-session-create '(:name "default"))
