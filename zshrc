@@ -51,28 +51,16 @@ alias rdbc='be rails dbconsole'
 alias rs='be rails s'
 alias rg='be rails g'
 
-alias cwip='RAILS_ENV=test rake cucumber:wip'
-alias cok='RAILS_ENV=test rake cucumber:ok'
-alias cokwip='cok && cwip'
-
 alias mongod="mongod run --config /usr/local/Cellar/mongodb/2.0.2-x86_64/mongod.conf"
 alias pg_start='pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start'
 alias pg_stop='pg_ctl -D /usr/local/var/postgres stop -s -m fast'
 
-alias artifex_god="bundle exec god -c config/god.rb"
 alias redis_start='redis-server /usr/local/etc/redis.conf'
 alias htop='sudo htop'
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" # This loads RVM into a shell session.
 
 umask 022
-
-export RUBY_HEAP_MIN_SLOTS=1000000
-export RUBY_HEAP_FREE_MIN=500000
-export RUBY_HEAP_SLOTS_INCREMENT=1000000
-export RUBY_HEAP_SLOTS_GROWTH_FACTOR=1
-export RUBY_GC_MALLOC_LIMIT=100000000
-export RUBY_FREE_MIN=$RUBY_HEAP_FREE_MIN
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
