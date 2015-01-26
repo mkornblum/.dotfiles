@@ -1,0 +1,21 @@
+{
+  "expr": true,
+  "esnext": true,
+  "globals" : {
+    /* NODE */
+    "require": false,
+    "module": false,
+    "setInterval": false,
+    "clearInterval": false,
+    "process": false,
+    "Buffer": false,
+    /* MOCHA */
+    "describe": false,
+    "context": false,
+    "it": false,
+    "before": false,
+    "beforeEach": false,
+    "after": false,
+    "afterEach": false
+  }
+}
