@@ -58,6 +58,8 @@ alias pg_stop='pg_ctl -D /usr/local/var/postgres stop -s -m fast'
 alias redis_start='redis-server /usr/local/etc/redis.conf'
 alias htop='sudo htop'
 
+alias nr='repl.history'
+
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" # This loads RVM into a shell session.
 
 umask 022
