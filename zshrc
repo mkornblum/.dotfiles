@@ -66,6 +66,8 @@ umask 022
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
+. ~/.nvm/nvm.sh
+
 [[ $EMACS = t ]] && unsetopt zle
 
 ### Added by the Heroku Toolbelt
