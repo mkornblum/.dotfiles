@@ -8,7 +8,7 @@ local secondClick = false
 
 displayStatus = function()
   -- Check if the active mic is muted
-  if hs.audiodevice.defaultInputDevice():muted() then
+  if hs.audiodevice.defaultInputDevice():inputMuted() then
     messageMuting:notify()
   else
     messageHot:notify()
@@ -17,10 +17,10 @@ end
 displayStatus()
 
 toggle = function(device)
-  if device:muted() then
-    device:setMuted(false)
+  if device:inputMuted() then
+    device:setInputMuted(false)
   else
-    device:setMuted(true)
+    device:setInputMuted(true)
   end
 end
 
