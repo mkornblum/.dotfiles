@@ -4,6 +4,11 @@ require('windows')
 
 local message = require('status-message')
 
+hs.hotkey.bind({"command", "control"}, "return", function()
+  message.new("Starting Screensaver"):notify()
+  hs.caffeinate.startScreensaver()
+end)
+
 function reloadConfig(files)
   doReload = false
   for _,file in pairs(files) do
