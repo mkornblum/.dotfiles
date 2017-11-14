@@ -33,7 +33,6 @@ end)
 
 windowMover:bind("", "Up", function()
                    hs.grid.show()
-                   windowMover:exit()
 end)
 
 windowMover:bind("", "Down", function()
