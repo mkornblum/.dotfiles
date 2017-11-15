@@ -4,7 +4,7 @@ require('windows')
 
 local message = require('status-message')
 
-hs.hotkey.bind({"command", "control"}, "return", function()
+hs.hotkey.bind({"command", "control"}, "return", nil, function()
   message.new("Starting Screensaver"):notify()
   hs.caffeinate.startScreensaver()
 end)
