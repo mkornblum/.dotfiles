@@ -23,28 +23,32 @@ function windowMover:exited()
   hs.alert.show("Resize Complete")
 end
 
+function exitWindowMover()
+  windowMover:exit()
+end
+
 windowMover:bind('', 'escape', function()
-                   windowMover:exit()
+                   exitWindowMover()
 end)
 
 windowMover:bind('ctrl', 'g', function()
-                   windowMover:exit()
+                   exitWindowMover()
 end)
 
 windowMover:bind("", "Up", function()
-                   hs.grid.show()
+                   hs.grid.show(exitWindowMover)
 end)
 
 windowMover:bind("", "Down", function()
                    resizeWindow()
-                   windowMover:exit()
+                   exitWindowMover()
 end)
 
 windowMover:bind("", "Left", function()
                    local max = getMaxFrame()
                    newWidth = max.w / 2
                    resizeWindow({ width = newWidth })
-                   windowMover:exit()
+                   exitWindowMover()
 end)
 
 windowMover:bind("", "Right", function()
@@ -52,5 +56,5 @@ windowMover:bind("", "Right", function()
                    newWidth = max.w / 2
                    newX = max.x + (max.w / 2)
                    resizeWindow({ width = newWidth, x = newX })
-                   windowMover:exit()
+                   exitWindowMover()
 end)
