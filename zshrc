@@ -60,18 +60,18 @@ alias htop='sudo htop'
 
 alias nr='repl.history'
 
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" # This loads RVM into a shell session.
+alias git_how_far_behind_master_am_i='git rev-list --left-right --count origin/master...HEAD'
+alias mkornblum_oliver_opencpu='ssh mkornblum@52.90.57.218 -p 5431'
 
 umask 022
 ulimit -n 2560
 
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
-
-. ~/.nvm/nvm.sh
-
 [[ $EMACS = t ]] && unsetopt zle
 
-### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+. $HOME/.asdf/asdf.sh
+
+. $HOME/.asdf/completions/asdf.bash
 
 eval "$(direnv hook zsh)"
