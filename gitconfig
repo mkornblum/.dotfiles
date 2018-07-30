@@ -4,6 +4,8 @@
   autocrlf=false
   logallrefupdates=true
   repositoryformatversion=0
+[rebase]
+  autoStash=true
 [user]
   name="Mark Kornblum"
   email=mark.kornblum@gmail.com
